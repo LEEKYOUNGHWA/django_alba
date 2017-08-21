@@ -4,7 +4,7 @@ from django.core.files.storage import FileSystemStorage
 
 from uploads.core.models import Document
 from uploads.core.forms import DocumentForm
-
+from django.http import Http404
 
 def home(request):
     documents = Document.objects.all()
@@ -14,12 +14,16 @@ def home(request):
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
         return render(request, 'core/mainpage.html', {'uploaded_file_url': uploaded_file_url , 'documents': documents })
-    if request.method == 'POST' and request.FILES['select']:
-        select = request.FILES['select']
-        fs = FileSystemStorage()
-        select_file_url = fs.url(select.name)
-        return render(request, 'core/mainpage.html', {'select_file_url': select_file_url , 'documents': documents })
     return render(request, 'core/mainpage.html', { 'documents': documents })
+
+def select(request, document_id):
+    documents = Document.objects.all()
+    try:
+         pickd = Document.objects.get(pk=document_id)
+         select_file_url = pickd.document.url
+    except Document.DoesNotExist:
+        raise Http404("Question does not exist")
+    return render(request, 'core/mainpage.html', { 'documents': documents ,'select_file_url':select_file_url })
 
 def contact(request):
     return render(request, 'core/contact.html', {})
