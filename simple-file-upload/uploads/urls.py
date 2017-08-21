@@ -7,9 +7,9 @@ from uploads.core import views
 
 
 urlpatterns = [
-    url(r'^$', views.home, name='home'),
-    url(r'^uploads/simple/$', views.simple_upload, name='simple_upload'),
-    url(r'^uploads/form/$', views.model_form_upload, name='model_form_upload'),
+    url(r'^$', views.home, name='main_page'),
+    url(r'^contact', views.contact, name='contact_page'),
+    url(r'^upload', views.model_form_upload, name='upload'),
     url(r'^admin/', admin.site.urls),
 ]
 
