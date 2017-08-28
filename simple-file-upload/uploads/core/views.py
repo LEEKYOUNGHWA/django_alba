@@ -28,6 +28,7 @@ def select(request, document_id):
 def contact(request):
     return render(request, 'core/contact.html', {})
 
+"""
 def model_form_upload(request):
     documents = Document.objects.all()
     if request.method == 'POST':
@@ -39,3 +40,4 @@ def model_form_upload(request):
         form = DocumentForm()
     return render(request, 'core/uploadpage.html', {'form': form , 'documents': documents })
 
+"""
