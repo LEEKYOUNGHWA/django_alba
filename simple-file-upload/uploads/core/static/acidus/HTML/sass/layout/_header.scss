@@ -1,12 +1,22 @@
 /*------------------------------------------------------------------
-  	[Header]
+    [Header]
 ------------------------------------------------------------------*/
+
+/* Fixed Top */
+.navbar-fixed-top {
+    .navbar-collapse {
+        max-height: 100%;
+    }
+}
 
 /* Navbar */
 .header {
-	.navbar {
-		margin-bottom: 0;
-	}
+    .navbar {
+        background: $color-white;
+        margin-bottom: 0;
+        border-bottom: 1px solid rgba(255,255,255,.2);
+        @include cubic-transition($delay: 0, $duration: 300ms, $property: (all));
+    }
 }
 
 /* Navbar Toggle */
@@ -18,7 +28,7 @@
         margin: 35px 0;
 
         .toggle-icon {
-            position: relative;
+            @include position(relative);
             @include size(21px, 1px);
             display: inline-block;
             background: $color-heading;
@@ -53,9 +63,9 @@
 
                 &:before,
                 &:after {
-            		@include size(21px, 1px);
+                    @include size(21px, 1px);
                     background: $color-base;
-                	@include cubic-transition($delay: 0, $duration: 300ms, $property: (all));
+                    @include cubic-transition($delay: 0, $duration: 300ms, $property: (all));
                 }
 
                 &.is-clicked {
@@ -68,14 +78,14 @@
 
 /* Navbar Logo */
 .header {
-    .navbar-logo {
+    .logo {
         @include size(100px);
         float: left;
         max-height: 95px;
         line-height: 65px;
     }
     
-    .navbar-logo-wrap {
+    .logo-wrap {
         display: inline-block;
         padding: 15px 0;
 
@@ -85,9 +95,9 @@
         }
     }
 
-    .navbar-logo-img {
+    .logo-img {
         display: inline-block;
-        @include size(85px, auto);
+        @include size(76px, auto);
         max-width: 100%;
         max-height: 100%;
         vertical-align: middle;
@@ -96,45 +106,72 @@
 
 /* Navbar */
 .header {
-	.navbar-nav {
-		padding-left: 0;
-		margin-bottom: 0;
-		list-style: none;
-	}
+    .navbar-nav {
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+    }
 }
 
 /* Nav */
 .header {
-	.nav-item {
-		position: relative;
-		display: block;
+    .nav-item {
+        @include position(relative);
+        display: block;
 
-		&:last-child {
-			.nav-item-child {
-				padding-right: 0;
-			}
-		}
-	}
-	
-	.nav-item-child {
-		position: relative;
-		display: block;
-		@include font($size: 13px, $weight: 600, $family: $font-family-base);
-		text-transform: uppercase;
-		line-height: 55px;
-		padding: 20px;
+        &:last-child {
+            .nav-item-child {
+                padding-right: 0;
+            }
+        }
 
-		&.active {
-			position: relative;
+        &.active {
+            .nav-item-hover {
+                &:after {
+                    opacity: 1;
+                    @include cubic-transition($delay: 0, $duration: 400ms, $property: (all));
+                }
+            }
+        }
 
-			&:after {
-		        @include position(absolute, $top: 45px, $left: 0);
-		        @include size(9px, 2px);
-		        background: $color-base;
-		        content: " ";
-		    }
-		}
-	}
+        &:hover {
+            .nav-item-hover {
+                &:after {
+                    opacity: 1;
+                    @include cubic-transition($delay: 0, $duration: 400ms, $property: (all));
+                }
+            }
+        }
+    }
+    
+    .nav-item-child {
+        @include position(relative);
+        display: block;
+        @include font($size: 13px, $weight: 600, $family: $font-family-base);
+        color: $color-heading;
+        text-transform: uppercase;
+        line-height: 55px;
+        padding: 20px;
+        @include cubic-transition($delay: 0, $duration: 300ms, $property: (all));
+
+        &:hover,
+        &:focus {
+            background: inherit;
+        }
+    }
+
+    .nav-item-hover {
+        @include position(relative);
+
+        &:after {
+            @include position(absolute, $top: 45px, $left: 0);
+            @include size(9px, 2px);
+            background: $color-base;
+            opacity: 0;
+            content: " ";
+            @include cubic-transition($delay: 0, $duration: 400ms, $property: (all));
+        }
+    }
 }
 
 /* Media Queries below 991px */
@@ -142,6 +179,8 @@
     /* Bootstrap collapse of navigation with a maximum width: 991px
     (Change it to any breakpoint you want to be collapsed) */
     .header {
+        background: $color-white;
+
         .navbar-toggle {
             display: block;
         }
@@ -152,14 +191,13 @@
 
                 &.in {
                     display: block !important;
-                    overflow-y: auto !important;
                 }
             }
         }
 
         .nav-collapse {
-        	padding-left: 0;
-        	padding-right: 0;
+            padding-left: 0;
+            padding-right: 0;
         }
 
         .navbar-nav {
@@ -182,14 +220,15 @@
     /* Navbar Nav */
     .header {
         .nav-item-child {
+            color: $color-heading;
             line-height: 1.4;
             padding: 12px 12px 12px 15px;
+        }
 
-			&.active {
-				&:after {
-			        @include position(absolute, $top: 20px);
-			    }
-			}
+        .nav-item-hover {
+            &:after {
+                @include position(absolute, $top: 19px);
+            }
         }
     }
 }
@@ -214,8 +253,8 @@
                 margin-right: 0;
 
                 > .nav-collapse {
-                	padding-left: 0;
-                	padding-right: 0;
+                    padding-left: 0;
+                    padding-right: 0;
                     margin-left: 0;
                     margin-right: 0;
                 }
@@ -230,6 +269,24 @@
     .header {
         .navbar-nav-right {
             float: right;
+        }
+    }
+}
+
+/* Page On Scroll */
+@media (min-width: $screen-md-min) {
+    .page-on-scroll {
+        .header {
+            .navbar {
+                background: $color-white;
+                border-bottom-color: #f0f0f0;
+                @include cubic-transition($delay: 0, $duration: 300ms, $property: (all));
+            }
+
+            .nav-item-child {
+                color: $color-heading;
+                @include cubic-transition($delay: 0, $duration: 300ms, $property: (all));
+            }
         }
     }
 }

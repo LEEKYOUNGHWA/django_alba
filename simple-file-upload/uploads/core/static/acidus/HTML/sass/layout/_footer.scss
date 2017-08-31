@@ -4,19 +4,6 @@
 
 .footer {
 	.footer-logo {
-		@include size(85px, 21px);
-	}
-
-	.footer-list {
-		margin-bottom: 0;
-	}
-	
-	.footer-list-item {
-		color: #777984;
-		margin-bottom: 15px;
-
-		&:last-child {
-			margin-bottom: 0;
-		}
+		@include size(76px, auto);
 	}
 }

@@ -12,7 +12,7 @@
 
         <!-- GLOBAL MANDATORY STYLES -->
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Hind:300,400,500,600,700" type="text/css">
-        <link  rel="stylesheet" href="{% static 'acidus/HTML/vendor/simple-line-icons/simple-line-icons.min.css' %}" type="text/css">
+        <link  rel="stylesheet" href="{% static 'acidus/HTML/vendor/simple-line-icons/simple-line-icons.css' %}" type="text/css">
         <link  rel="stylesheet" href="{% static 'acidus/HTML/vendor/bootstrap/css/bootstrap.min.css' %}" type="text/css">
 
         <!-- PAGE LEVEL PLUGIN STYLES -->
@@ -20,7 +20,7 @@
         <link href="{% static 'acidus/HTML/vendor/swiper/css/swiper.min.css' %}" rel="stylesheet" type="text/css"/>
 
         <!-- THEME STYLES -->
-        <link href="{% static 'acidus/HTML/css/layout.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'acidus/HTML/css/layout.css' %}" rel="stylesheet" type="text/css"/>
 
         <!-- Favicon -->
         <link rel="shortcut icon" href="favicon.ico"/>
@@ -28,55 +28,32 @@
     <!-- END HEAD -->
 
     <!-- BODY -->
-    <body>
-
+    <body id="body" data-spy="scroll" data-target=".header" class="padding-t-70" >
         <!--========== HEADER ==========-->
-        <header class="header">
+        <header class="header navbar-fixed-top bg-color-dark">
             <!-- Navbar -->
-            <nav class="navbar" role="navigation">
-                <div class="container">
+            <nav class="navbar bg-color-dark" role="navigation">
+                <div class="container full-width">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="menu-container">
+                    <div class="menu-container js_nav-item">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="toggle-icon"></span>
                         </button>
 
-                        <!-- Logo -->
-                        <div class="navbar-logo">
-                            <a class="navbar-logo-wrap" href="/">
-                                <img class="navbar-logo-img" src="{% static 'acidus/HTML/img/pnu_logo.png'%}" alt="Acidus Logo">
+                        <div class="logo">
+                            <a class="logo-wrap" href="/">
+                                <h4 class="color-light">LPN DEMO</h4>
                             </a>
                         </div>
-                        <!-- End Logo -->
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse nav-collapse">
                         <div class="menu-container">
-                            <ul class="navbar-nav navbar-nav-right">
-                                <!-- Home -->
-                                <li class="nav-item">
-                                    <a class="nav-item-child active" href="/">
-                                        Home
-                                    </a>
-                                </li>
-                                <!-- End Home -->
-                                <!-- upload image -->
-                              <!--  <li class="nav-item">
-                                    <a class="nav-item-child" href="/upload">
-                                        upload
-                                    </a>
-                                </li> -->
-                                <!-- End uploadimage -->
-                                <!-- Contact -->
-                                <li class="nav-item">
-                                    <a class="nav-item-child" href="/contact">
-                                        Contact
-                                    </a>
-                                </li>
-                                <!-- End Contact -->
-                                <!--경화:탭 추가시 여기에 -->
+                            <ul class="nav navbar-nav navbar-nav-left">
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover color-light" href="#body">DEMO HOME</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover color-light" href="#contact">CONTACT</a></li>
 
                             </ul>
                         </div>
@@ -88,106 +65,106 @@
         </header>
         <!--========== END HEADER ==========-->
 
+
         <!--========== PAGE LAYOUT ==========-->
         <!-- Work -->
-        <div class="bg-color-sky-light">
-            <div class="content-md container">
-                <!-- Masonry Grid -->
-                <div class="masonry-grid">
-                    <div class="masonry-grid-sizer col-xs-6 col-sm-6 col-md-6"></div>
-                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-6">
-                        <!-- Work -->
-                        <div class="work">
-                            <div class="work-overlay">
-                               <!-- <img class="full-width img-responsive" src="{% static 'acidus/HTML/img/595x483/01.jpg' %}" alt="Portfolio Image">-->
-                                {% if select_file_url %}
-                                       <img class="full-width img-responsive" src="{{ select_file_url }}" alt="Portfolio Image">
-                                {% elif uploaded_file_url %}
-                                       <img class="full-width img-responsive" src="{{ uploaded_file_url }}" alt="Portfolio Image">
-                                {% else %}
-                                    <img class="full-width img-responsive" src="{% static 'acidus/HTML/img/basicimage.jpg' %}" alt="Portfolio Image">
-                                {% endif %}
-
-                            </div>
-                        </div>
-                        <!-- End Work -->
-                    </div>
-
-                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-6">
-                        <div class="col margin-b-40">
-                            <div class="col-sm-12">
-                                <h2>이미지 업로드</h2>
-                                     <form method="post" enctype="multipart/form-data">
-                                        {% csrf_token %}
-                                        <input type="file" name="myfile">
-                                        <p> </p>
-                                        <button type="submit">Upload</button>
-                                      </form>
-                                      {% if uploaded_file_url %}
-                                        <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
-                                      {% endif %}
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-                <!-- End Masonry Grid -->
-            </div>
-        </div>
-        <!-- End Work -->
-        
-        <!-- Work -->
-        <div class="bg-color-sky-light overflow-h">
-            <div class="content-md container">
-                <!-- Masonry Grid -->
-                <div class="masonry-grid">
-                    <div class="masonry-grid-sizer col-xs-6 col-sm-6 col-md-1"></div>
-                     {% for obj in documents %}
-                         <div class="masonry-grid-item col-xs-6 col-sm-6 col-md-3">
-                                <!-- Work -->
-                                <div class="work">
-                                    <div class="work-overlay">
-                                        <img class="full-width img-responsive" src="{{ obj.document.url }}" alt="Portfolio Image">
-                                    </div>
-                                    <div class="work-content">
-                                        <h3 class="color-white margin-b-5"  >{{ obj.document.name }} </h3>
-                                        <p class="color-white margin-b-0">Uploaded at: {{ obj.uploaded_at }}</p>
-                                    </div>
-                                    <a class="content-wrapper-link" href="{%url 'pick' obj.id%}"></a>
-                                </div>
-                                <!-- End Work -->
-                         </div>
-                        {% endfor %}
-                        <!-- End Work -->
-                    </div>
-                </div>
-                <!-- End Masonry Grid -->
-            </div>
-        </div>
-        <!-- End Work -->
-
-        <!--========== END PAGE LAYOUT ==========-->
-
-        <!--========== FOOTER ==========-->
-        <footer class="footer">
-            <!-- Copyright -->
-            <div class="content container">
+        <div id="about">
+            <div class="container full-width">
                 <div class="row">
-                    <div class="col-xs-6">
-                       <a href="/">
-                        <img class="footer-logo" src="{% static 'acidus/HTML/img/pnu_logo.png'%}" alt="Acidus Logo">
-                        </a>
+                     <div class="col-sm-4">
+                        <h2>Drone View Car Counting</h2>
                     </div>
-                    <div class="col-xs-6 text-right">
-                        <p class="margin-b-0"><a class="fweight-700" href="/">PNU Vison & Intelligent System Lab </a> Theme Powered by: <a class="fweight-700" href="http://www.keenthemes.com/">KeenThemes.com</a></p>
+                    <div class="col-sm-8">
+                        <p class="margin-t-10">Drone Application</p>
                     </div>
                 </div>
                 <!--// end row -->
+                <div class="row">
+                    <div class="col-sm-7">
+                        <div class="section-seperator margin-b-0">
+                            <div class="margin-b-0">
+                                <div class="margin-b-0">
+                                    <!-- <img class="full-width img-responsive" src="{% static 'acidus/HTML/img/595x483/01.jpg' %}" alt="Portfolio Image">-->
+                                    {% if select_file_url %}
+                                    <img class="full-width img-responsive" src="{{ select_file_url }}" alt="Portfolio Image">
+                                    {% elif uploaded_file_url %}
+                                    <img class="full-width img-responsive" src="{{ uploaded_file_url }}" alt="Portfolio Image">
+                                    {% else %}
+                                    <img class="full-width img-responsive" src="{% static 'acidus/HTML/img/basicimage.jpg' %}" alt="Portfolio Image">
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 sm-margin-b-0">
+                        <h3>Project Description</h3>
+                        <p>&nbsp;It's a demo page for our car counting CNN model. You can upload the 'drone-view' image. then our system will localize and count the number of cars in the sene for you</p>
+                        <h3 class="margin-b-0">Upload Your Drone-view Image</h3>
+                        <li>file must be smaller than 2MB</li>
+                        <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="file" name="myfile">&nbsp;
+                        <h3>Start Counting & Localizing</h3>
+                        <button class="btn btn-success full-width" type="submit" >Start</button>
+                        </form>
+                        &nbsp;
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 10%; height: 20px;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Masonry Grid -->
             </div>
-            <!-- End Copyright -->
-        </footer>
-        <!--========== END FOOTER ==========-->
+        </div>
+
+        <!-- Experience -->
+        <div id="experience">
+            <div class="bg-color-sky-light" data-auto-height="true">
+                <div class="container content-lg full-width">
+                    <h2>Drone View Car Counting</h2>
+                    <div class="row row-space-2 margin-b-4">
+                        {% for obj in documents %}
+                         <div class="col-md-3 col-sm-6">
+                            <img class="full-width img-responsive" src="{{ obj.document.url }}" alt="Portfolio Image" href="{%url 'pick' obj.id%}">
+                            <a class="content-wrapper-link" href="{%url 'pick' obj.id%}"></a>
+                         </div>
+                        {% endfor %}
+                    </div>
+                    <!--// end row -->
+                </div>
+            </div>
+        </div>
+        <!-- End Experience -->
+
+        <!-- Contact -->
+        <div id="contact">
+            <div class="bg-color-sky-light">
+                <div class="container content-lg full-width margin-b-100">
+                    <div class="row margin-b-40">
+                        <div class="col-sm-6">
+                           <h2>Contact Me</h2>
+                            <p>기술지원 T.A 이경화</p>
+                        </div>
+                    </div>
+                    <!--// end row -->
+
+                    <div class="row">
+                        <div class="col-md-3 col-xs-6 md-margin-b-30">
+                            <h4>Location</h4>
+                            <a href="http://keenthemes.com/">부산대, 컴퓨터공학관</a>
+                        </div>
+                        <div class="col-md-3 col-xs-6">
+                            <h4>Email</h4>
+                            <a>rudghk@gmail.com</a>
+                        </div>
+                    </div>
+                    <!--// end row -->
+                </div>
+            </div>
+        </div>
+        <!-- End Contact -->
+
+        <!--========== END PAGE LAYOUT ==========-->
 
         <!-- Back To Top -->
         <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
@@ -203,16 +180,17 @@
         <script src="{% static 'acidus/HTML/vendor/jquery.back-to-top.js' %}" type="text/javascript"></script>
         <script src="{% static 'acidus/HTML/vendor/jquery.smooth-scroll.js' %}" type="text/javascript"></script>
         <script src="{% static 'acidus/HTML/vendor/jquery.wow.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'acidus/HTML/vendor/jquery.parallax.min.js" type="text/javascript"></script>
         <script src="{% static 'acidus/HTML/vendor/swiper/js/swiper.jquery.min.js' %}" type="text/javascript"></script>
-        <script src="{% static 'acidus/HTML/vendor/masonry/jquery.masonry.pkgd.min.js' %}" type="text/javascript"></script>
-        <script src="{% static 'acidus/HTML/vendor/masonry/imagesloaded.pkgd.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'acidus/HTML/vendor/masonry/jquery.appear.js' %}" type="text/javascript"></script>
+        <script src="{% static 'acidus/HTML/vendor/swiper/jquery.min.js' %}" type="text/javascript"></script>
 
         <!-- PAGE LEVEL SCRIPTS -->
-        <script src="{% static 'acidus/HTML/js/layout.min.js' %}" type="text/javascript"></script>
-        <script src="{% static 'acidus/HTML/js/components/wow.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'acidus/HTML/js/layout.js' %}" type="text/javascript"></script>
         <script src="{% static 'acidus/HTML/js/components/swiper.min.js' %}" type="text/javascript"></script>
-        <script src="{% static 'acidus/HTML/js/components/masonry.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'acidus/HTML/js/components/wow.min.js' %}" type="text/javascript"></script>
 
-    </body>
+
+        </body>
     <!-- END BODY -->
 </html>
