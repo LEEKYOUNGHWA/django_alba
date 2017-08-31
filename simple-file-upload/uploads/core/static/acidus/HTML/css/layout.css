@@ -36,9 +36,9 @@ body {
 
 p {
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 500;
   font-family: Hind, sans-serif;
-  color: #a6a7aa;
+  color: #565759;
   line-height: 1.4;
   margin-bottom: 15px;
 }
@@ -54,7 +54,7 @@ li a {
 
 a {
   font-family: Hind, sans-serif;
-  color: #81848f;
+  color: #565759;
   outline: 0;
 }
 

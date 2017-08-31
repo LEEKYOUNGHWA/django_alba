@@ -150,3 +150,14 @@ var Layout = function () {
 $(document).ready(function() {
     Layout.init();
 });
+
+// BackSpace 키 방지 이벤트
+$(document).keydown(function(e){
+    if(e.target.nodeName != "INPUT" && e.target.nodeName != "TEXTAREA"){
+        if(e.keyCode === 8){
+        return false;
+        }
+    }
+});
+
+window.history.forward(0);

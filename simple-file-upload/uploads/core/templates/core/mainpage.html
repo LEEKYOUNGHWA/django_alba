@@ -70,17 +70,10 @@
         <!-- Work -->
         <div id="about">
             <div class="container full-width">
-                <div class="row">
-                     <div class="col-sm-4">
-                        <h2>Drone View Car Counting</h2>
-                    </div>
-                    <div class="col-sm-8">
-                        <p class="margin-t-10">Drone Application</p>
-                    </div>
-                </div>
+                <h2><a> Simple Query Drone-View Image </a><span class="margin-l-20">Drone Application</span></h2>
                 <!--// end row -->
                 <div class="row">
-                    <div class="col-sm-7">
+                    <div class="col-sm-8">
                         <div class="section-seperator margin-b-0">
                             <div class="margin-b-0">
                                 <div class="margin-b-0">
@@ -96,7 +89,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-5 sm-margin-b-0">
+                    <div class="col-sm-4 sm-margin-b-0">
                         <h3>Project Description</h3>
                         <p>&nbsp;It's a demo page for our car counting CNN model. You can upload the 'drone-view' image. then our system will localize and count the number of cars in the sene for you</p>
                         <h3 class="margin-b-0">Upload Your Drone-view Image</h3>
@@ -105,7 +98,7 @@
                         {% csrf_token %}
                         <input type="file" name="myfile">&nbsp;
                         <h3>Start Counting & Localizing</h3>
-                        <button class="btn btn-success full-width" type="submit" >Start</button>
+                        <button style="height:50px;" class="btn btn-success full-width" type="submit" >Start</button>
                         </form>
                         &nbsp;
                         <div class="progress">
@@ -125,7 +118,7 @@
                     <div class="row row-space-2 margin-b-4">
                         {% for obj in documents %}
                          <div class="col-md-3 col-sm-6">
-                            <img class="full-width img-responsive" src="{{ obj.document.url }}" alt="Portfolio Image" href="{%url 'pick' obj.id%}">
+                            <img height="10px" class="full-width img-responsive" src="{{ obj.document.url }}" alt="Portfolio Image" href="{%url 'pick' obj.id%}">
                             <a class="content-wrapper-link" href="{%url 'pick' obj.id%}"></a>
                          </div>
                         {% endfor %}
@@ -142,20 +135,16 @@
                 <div class="container content-lg full-width margin-b-100">
                     <div class="row margin-b-40">
                         <div class="col-sm-6">
-                           <h2>Contact Me</h2>
-                            <p>기술지원 T.A 이경화</p>
-                        </div>
-                    </div>
-                    <!--// end row -->
-
-                    <div class="row">
-                        <div class="col-md-3 col-xs-6 md-margin-b-30">
-                            <h4>Location</h4>
-                            <a href="http://keenthemes.com/">부산대, 컴퓨터공학관</a>
-                        </div>
-                        <div class="col-md-3 col-xs-6">
-                            <h4>Email</h4>
-                            <a>rudghk@gmail.com</a>
+                            <div class="col-sm-12 sm-margin-b-50">
+                                <h2>Contact Me</h2>
+                                <h4><a> 비전 & 지능시스템 연구실 </a><span class="text-uppercase margin-l-20">Head Office</span></h4>
+                                <p>부산시 금정구 부산대학로 63번길 2 (장전동) 제 3공학관 3517 </p>
+                                <ul class="list-unstyled contact-list">
+                                    <li><i class="margin-r-10 color-base icon-call-out"></i> 1 012 3456 7890</li>
+                                    <li><i class="margin-r-10 color-base icon-envelope"></i> hq@acidus.com</li>
+                                    <li><i class="margin-r-10 color-base icon-home"></i> http://vis.me.pusna.ac.kr</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <!--// end row -->
