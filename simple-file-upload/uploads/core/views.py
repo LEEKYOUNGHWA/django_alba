@@ -4,8 +4,8 @@ from django.core.files.storage import FileSystemStorage
 
 from uploads.core.models import Document
 from uploads.core.forms import DocumentForm
+from uploads.core.FaceDetect.face_detect_cv3 import detectface
 from django.http import Http404
-
 def home(request):
     documents = Document.objects.all()
     if request.method == 'POST' and request.FILES['myfile']:
@@ -13,6 +13,7 @@ def home(request):
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
+        uploaded_file_url = detectface(uploaded_file_url,filename)
         return render(request, 'core/mainpage.html', {'uploaded_file_url': uploaded_file_url , 'documents': documents })
     return render(request, 'core/mainpage.html', { 'documents': documents })
 
