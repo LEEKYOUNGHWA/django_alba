@@ -70,10 +70,10 @@
         <!-- Work -->
         <div id="about">
             <div class="container full-width">
-                <h2><a> Simple Query Drone-View Image </a><span class="margin-l-20">Drone Application</span></h2>
+                <h2><a>Drone View Car Counting</a><span class="margin-l-20">Drone Application</span></h2>
                 <!--// end row -->
                 <div class="row">
-                    <div class="col-sm-8">
+                    <div class="col-sm-8 sm-margin-b-20">
                         <div class="section-seperator margin-b-0">
                             <div class="margin-b-0">
                                 <div class="margin-b-0">
@@ -112,13 +112,13 @@
 
         <!-- Experience -->
         <div id="experience">
-            <div class="bg-color-sky-light" data-auto-height="true">
+            <div class="bg-color-sky-light">
                 <div class="container content-lg full-width">
-                    <h2>Drone View Car Counting</h2>
+                    <h2><a>Simple Query Drone-View Image</a></h2>
                     <div class="row row-space-2 margin-b-4">
                         {% for obj in documents %}
                          <div class="col-md-3 col-sm-6">
-                            <img height="10px" class="full-width img-responsive" src="{{ obj.document.url }}" alt="Portfolio Image" href="{%url 'pick' obj.id%}">
+                            <img class="thumbnail" src="{{ obj.document.url }}" alt="Portfolio Image" href="{%url 'pick' obj.id%}">
                             <a class="content-wrapper-link" href="{%url 'pick' obj.id%}"></a>
                          </div>
                         {% endfor %}
@@ -131,12 +131,11 @@
 
         <!-- Contact -->
         <div id="contact">
-            <div class="bg-color-sky-light">
                 <div class="container content-lg full-width margin-b-100">
                     <div class="row margin-b-40">
                         <div class="col-sm-6">
                             <div class="col-sm-12 sm-margin-b-50">
-                                <h2>Contact Me</h2>
+                                <h2><a>Contact Me</a></h2>
                                 <h4><a> 비전 & 지능시스템 연구실 </a><span class="text-uppercase margin-l-20">Head Office</span></h4>
                                 <p>부산시 금정구 부산대학로 63번길 2 (장전동) 제 3공학관 3517 </p>
                                 <ul class="list-unstyled contact-list">
@@ -150,7 +149,6 @@
                     <!--// end row -->
                 </div>
             </div>
-        </div>
         <!-- End Contact -->
 
         <!--========== END PAGE LAYOUT ==========-->

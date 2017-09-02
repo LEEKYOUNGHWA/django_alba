@@ -792,80 +792,6 @@ fieldset[disabled] .btn-theme {
   transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
 }
 
-/*--------------------------------------------------
-    [Masonry Grid]
-----------------------------------------------------*/
-.masonry-grid {
-  position: relative;
-  margin: 0 -2px;
-}
-
-.masonry-grid:before, .masonry-grid:after {
-  content: " ";
-  display: table;
-}
-
-.masonry-grid:after {
-  clear: both;
-}
-
-.masonry-grid .masonry-grid-item {
-  display: block;
-  float: left;
-  vertical-align: top;
-  padding: 0 2px;
-  margin-bottom: 4px;
-}
-
-.masonry-grid .masonry-grid-item.col-12 {
-  width: 100%;
-}
-
-.masonry-grid .masonry-grid-item.col-11 {
-  width: 91.66666667%;
-}
-
-.masonry-grid .masonry-grid-item.col-10 {
-  width: 83.33333333%;
-}
-
-.masonry-grid .masonry-grid-item.col-9 {
-  width: 75%;
-}
-
-.masonry-grid .masonry-grid-item.col-8 {
-  width: 66.66666667%;
-}
-
-.masonry-grid .masonry-grid-item.col-7 {
-  width: 58.33333333%;
-}
-
-.masonry-grid .masonry-grid-item.col-6 {
-  width: 50%;
-}
-
-.masonry-grid .masonry-grid-item.col-5 {
-  width: 41.66666667%;
-}
-
-.masonry-grid .masonry-grid-item.col-4 {
-  width: 33.33333333%;
-}
-
-.masonry-grid .masonry-grid-item.col-3 {
-  width: 25%;
-}
-
-.masonry-grid .masonry-grid-item.col-2 {
-  width: 16.66666667%;
-}
-
-.masonry-grid .masonry-grid-item.col-1 {
-  width: 8.33333333%;
-}
-
-
 /*------------------------------------------------------------------
     [Swiper Slider]
 ------------------------------------------------------------------*/
@@ -1058,7 +984,16 @@ fieldset[disabled] .btn-theme {
   width: 100%;
   height: auto;
 }
-
+.thumbnail{
+    border:0;
+    padding:0;
+    margin-bottom:3px;
+    width:100%;
+    height:200px;
+    border-radius: 0%;
+    background-size: cover;
+    background-position: center center;
+    }
 /*--------------------------------------------------
     [Font Weight]
 ----------------------------------------------------*/
