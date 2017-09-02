@@ -6,6 +6,7 @@ from uploads.core.models import Document
 from uploads.core.forms import DocumentForm
 from uploads.core.FaceDetect.face_detect_cv3 import detectface
 from django.http import Http404
+
 def home(request):
     documents = Document.objects.all()
     if request.method == 'POST' and request.FILES['myfile']:
