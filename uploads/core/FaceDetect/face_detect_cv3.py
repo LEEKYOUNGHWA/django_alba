@@ -1,10 +1,10 @@
 import cv2
 import sys
-
+from uploads.settings import BASE_DIR
 # Get user supplied values
 def detectface(filepath, filename):
-    imagePath = "C:\djangoworkspace\django_alba\simple-file-upload"
-    cascPath = "C:/djangoworkspace/django_alba/simple-file-upload/uploads/core/FaceDetect/haarcascade_frontalface_default.xml"
+    imagePath = BASE_DIR
+    cascPath = BASE_DIR+"/uploads/core/FaceDetect/haarcascade_frontalface_default.xml"
 
     # Create the haar cascade
     faceCascade = cv2.CascadeClassifier(cascPath)
