@@ -7,16 +7,30 @@ from uploads.core.forms import DocumentForm
 from uploads.core.FaceDetect.face_detect_cv3 import detectface
 from django.http import Http404
 
+
 def home(request):
     documents = Document.objects.all()
-    if request.method == 'POST' and request.FILES['myfile']:
+    if request.method == 'POST' and request.FILES.get('myfile'):
         myfile = request.FILES['myfile']
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
-        uploaded_file_url = detectface(uploaded_file_url,filename)
-        return render(request, 'core/mainpage.html', {'uploaded_file_url': uploaded_file_url , 'documents': documents })
+       # uploaded_file_url = detectface(uploaded_file_url,filename)
+        return render(request, 'core/mainpage.html', {'select_file_url': uploaded_file_url , 'documents': documents })
     return render(request, 'core/mainpage.html', { 'documents': documents })
+
+def df(request,document_id):
+    documents = Document.objects.all()
+    try:
+        pickd = Document.objects.get(pk=document_id)
+        select_file_url = pickd.document.url
+        filename = pickd.document.name
+        select_file_url = detectface(select_file_url, filename)
+        return render(request, 'core/mainpage.html', {'select_file_url': select_file_url, 'documents': documents})
+    except Document.DoesNotExist:
+        raise Http404("Question does not exist")
+    return render(request, 'core/mainpage.html', {'documents': documents, 'select_file_url': select_file_url})
+
 
 def select(request, document_id):
     documents = Document.objects.all()
@@ -30,7 +44,6 @@ def select(request, document_id):
 def contact(request):
     return render(request, 'core/contact.html', {})
 
-"""
 def model_form_upload(request):
     documents = Document.objects.all()
     if request.method == 'POST':
@@ -41,5 +54,3 @@ def model_form_upload(request):
     else:
         form = DocumentForm()
     return render(request, 'core/uploadpage.html', {'form': form , 'documents': documents })
-
-"""
