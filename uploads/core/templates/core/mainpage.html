@@ -26,6 +26,7 @@
         <link rel="shortcut icon" href="favicon.ico"/>
 
     <script type = 'text/javascript'>
+
         function preupload(){
             if(!$("#myfile").val()){
                 alert("파일을 선택하세요");
@@ -43,6 +44,8 @@
             img.attr("src",url);
         }
         function calldetectface(type){
+
+
            var img;
            if( type ){
                 img = $('#uploadimage');
@@ -72,7 +75,9 @@
                     }
                {% endfor %}
            }
+
         }
+     }
     </script>
     </head>
     <!-- END HEAD -->
@@ -126,12 +131,12 @@
                     <div class="col-sm-8 sm-margin-b-20">
                         <div class="section-seperator margin-b-0">
                             <div class="margin-b-0">
-                                <div class="margin-b-0">
+                                <div class="margin-b-0 fixed-height">
                                     <!-- <img class="full-width img-responsive" src="{% static 'acidus/HTML/img/595x483/01.jpg' %}" alt="Portfolio Image">-->
                                     {% if select_file_url %}
-                                    <img class="full-width img-responsive" id = "uploadimage" src="{{ select_file_url }}" alt="Portfolio Image">
+                                    <img class="img-responsive full" id = "uploadimage" src="{{ select_file_url }}" alt="Portfolio Image">
                                     {% else %}
-                                    <img class="full-width img-responsive" id = "mainimage" src="{% static 'acidus/HTML/img/basicimage.jpg' %}" alt="Portfolio Image">
+                                    <img class="img-responsive full" id = "mainimage" src="{% static 'acidus/HTML/img/basicimage.jpg' %}" alt="Portfolio Image">
                                     {% endif %}
                                 </div>
                             </div>

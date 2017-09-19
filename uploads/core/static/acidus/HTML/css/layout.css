@@ -921,6 +921,7 @@ fieldset[disabled] .btn-theme {
   clear: both;
 }
 
+
 /*--------------------------------------------------
     [Container Small]
 ----------------------------------------------------*/
@@ -984,6 +985,23 @@ fieldset[disabled] .btn-theme {
   width: 100%;
   height: auto;
 }
+
+.full{
+ height:100%;
+ width:auto;
+ padding:0 auto;
+ margin: 0 auto;
+ }
+
+.fixed-height{
+    border:0;
+    padding:0 auto;
+    margin: 0 auto;
+    height:500px;
+    background-size: cover;
+    object-fit: cover;
+    }
+
 .thumbnail{
     border:0;
     padding:0;
