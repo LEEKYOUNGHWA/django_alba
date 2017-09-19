@@ -43,27 +43,40 @@
             img = $('#mainimage');
             img.attr("src",url);
         }
-        function calldetectface(type){
 
+        function mydetectface(){
 
+        var count = sessionStorage.getItem('btn_cnt',0);
+
+        count++;
+        sessionStorage.setItem('btn_cnt',count);
+        if (count>2){
+            alert(count + "횟수가 너무 많습니다");
+         }
+        else{
+
+             var img;
+             img = $('#uploadimage');
+             var url = img.attr("src");
+             var frm;
+             frm= $('#calldfformb');
+             frm.attr("action","/20/df/");
+             frm.submit();
+         }
+        }
+        function calldetectface(){
+        var count = sessionStorage.getItem('btn_cnt',0);
+
+        count++;
+        sessionStorage.setItem('btn_cnt',count);
+        if (count>2){
+            alert(count + "횟수가 너무 많습니다");
+            }
+
+        else{
            var img;
-           if( type ){
-                img = $('#uploadimage');
-                var url = img.attr("src");
-                {% for obj in result %}
-                    var cmp = "{{obj.document.url}}";
-                    alert(cmp);
-                    if(cmp == url){
-                        var id = "{{obj.id}}";
-                        var frm;
-                        frm= $('#calldfform');
-                        frm.attr("action","/"+id+"/df/");
-                        frm.submit();
-                    }
-               {% endfor %}
-           }else{
-               img = $('#mainimage');
-                var url = img.attr("src");
+           img = $('#mainimage');
+           var url = img.attr("src");
                {% for obj in documents %}
                     var cmp = "{{obj.document.url}}";
                     if(cmp == url){
@@ -77,7 +90,6 @@
            }
 
         }
-     }
     </script>
     </head>
     <!-- END HEAD -->
@@ -149,18 +161,24 @@
                         <li>file must be smaller than 2MB </li>
 
                          {% if select_file_url %}
+                        <form id = 'calldfformb' method="multipart/form-data">
+                            {% csrf_token %}
+                            <h3>Start Face Detecting ..</h3>
+                           <input type="hidden" name="dfurl" value="{{select_file_url}}">
+                            <button style="height:50px;" class="btn btn-success full-width" onclick ="mydetectface()" >DETECT</button>
+                        </form>
                          {% else %}
                             <form id = 'preload' method="post" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 <input type="file" id = 'myfile' name='myfile' onchange="preupload()">
                             </form>
-                         {% endif %}
 
-                        <form id = 'calldfform' method="post">
-                            {% csrf_token %}
-                            <h3>Start Face Detecting ..</h3>
-                            <button style="height:50px;" class="btn btn-success full-width" onclick ="calldetectface({{select_file_url}})" >START</button>
-                        </form>
+                            <form id = 'calldfform' method="post" >
+                                {% csrf_token %}
+                                <h3>Start Face Detecting ..</h3>
+                                <button style="height:50px;" class="btn btn-success full-width" onclick ="calldetectface()" >START</button>
+                            </form>
+                         {% endif %}
 
                     </div>
                 </div>
