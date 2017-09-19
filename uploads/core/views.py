@@ -10,6 +10,7 @@ from django.http import Http404
 
 def home(request):
     documents = Document.objects.all()
+
     if request.method == 'POST' and request.FILES.get('myfile'):
         myfile = request.FILES['myfile']
         fs = FileSystemStorage()
@@ -18,6 +19,13 @@ def home(request):
        # uploaded_file_url = detectface(uploaded_file_url,filename)
         return render(request, 'core/mainpage.html', {'select_file_url': uploaded_file_url , 'documents': documents })
     return render(request, 'core/mainpage.html', { 'documents': documents })
+def cdf(request):
+    documents = Document.objects.all()
+    if request.POST.get('dfurl'):
+        file_url = request.POST.get('dfurl')
+        uploaded_file_url = detectface(file_url, "result/abc.jpg")
+        return render(request, 'core/mainpage.html', {'select_file_url': uploaded_file_url, 'documents': documents})
+    return render(request, 'core/mainpage.html', {'documents': documents})
 
 def df(request,document_id):
     documents = Document.objects.all()
