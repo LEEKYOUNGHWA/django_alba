@@ -26,11 +26,10 @@
         <link rel="shortcut icon" href="favicon.ico"/>
 
     <script type = 'text/javascript'>
-
         function preupload(){
-            if(!$("#myfile").val()){
+            if(!$("#idocument").val()){
                 alert("파일을 선택하세요");
-                $("#myfile").focus();
+                $("#idocument").focus();
                 return;
             }
             var frm;
@@ -45,52 +44,30 @@
         }
 
         function mydetectface(){
-
-        var count = sessionStorage.getItem('btn_cnt',0);
-
-        count++;
-        sessionStorage.setItem('btn_cnt',count);
-        if (count>2){
-            alert(count + "횟수가 너무 많습니다");
-         }
-        else{
-
-             var img;
-             img = $('#uploadimage');
-             var url = img.attr("src");
-             var frm;
-             frm= $('#calldfformb');
-             frm.attr("action","/20/df/");
-             frm.submit();
-         }
-        }
-        function calldetectface(){
-        var count = sessionStorage.getItem('btn_cnt',0);
-
-        count++;
-        sessionStorage.setItem('btn_cnt',count);
-        if (count>2){
-            alert(count + "횟수가 너무 많습니다");
-            }
-
-        else{
-           var img;
-           img = $('#mainimage');
-           var url = img.attr("src");
-               {% for obj in documents %}
-                    var cmp = "{{obj.document.url}}";
-                    if(cmp == url){
-                        var id = "{{obj.id}}";
-                        var frm;
-                        frm= $('#calldfform');
-                        frm.attr("action","/"+id+"/df/");
-                        frm.submit();
-                    }
-               {% endfor %}
-           }
-
+            var count = sessionStorage.getItem('btn_cnt',0);
+            count++;
+            sessionStorage.setItem('btn_cnt',count);
+            if (count>10){
+                alert(count + "횟수가 너무 많습니다");
+             }
+            else{
+                 var img;
+                 {% if select_file_url %}
+                    img = $('#uploadimage');
+                 {% else %}
+                    img = $('#mainimage');
+                 {% endif %}
+                 var url = img.attr("src");
+                 var hidden = $('#himgurl');
+                 hidden.attr("value",url);
+                 var frm;
+                 frm= $('#calldfformb');
+                 frm.attr("action","/facelandmark/");
+                 frm.submit();
+             }
         }
     </script>
+
     </head>
     <!-- END HEAD -->
 
@@ -161,25 +138,18 @@
                         <li>file must be smaller than 2MB </li>
 
                          {% if select_file_url %}
-                        <form id = 'calldfformb' method="multipart/form-data">
-                            {% csrf_token %}
-                            <h3>Start Face Detecting ..</h3>
-                           <input type="hidden" name="dfurl" value="{{select_file_url}}">
-                            <button style="height:50px;" class="btn btn-success full-width" onclick ="mydetectface()" >DETECT</button>
-                        </form>
                          {% else %}
                             <form id = 'preload' method="post" enctype="multipart/form-data">
                                 {% csrf_token %}
-                                <input type="file" id = 'myfile' name='myfile' onchange="preupload()">
-                            </form>
-
-                            <form id = 'calldfform' method="post" >
-                                {% csrf_token %}
-                                <h3>Start Face Detecting ..</h3>
-                                <button style="height:50px;" class="btn btn-success full-width" onclick ="calldetectface()" >START</button>
+                                <input type="file" id = 'idocument' name='idocument' onchange="preupload()"/>
                             </form>
                          {% endif %}
-
+                            <form id = 'calldfformb' method="post">
+                                {% csrf_token %}
+                                <h3>Start Face Detecting ..</h3>
+                                <input type="hidden" id="himgurl" name="himgurl" value =""/>
+                                <button style="height:50px;" class="btn btn-success full-width" onclick ="mydetectface()" >DETECT</button>
+                            </form>
                     </div>
                 </div>
 <!--
@@ -200,9 +170,7 @@
                          <div class="col-md-3 col-sm-6">
                             <img class="thumbnail" src="{{ obj.document.url }}" alt="Portfolio Image">
                             <a class="content-wrapper-link" onclick ="clickimage('{{ obj.document.url }}')"></a>
-                             <!--
-                            <img class="thumbnail" src="{{ obj.document.url }}" alt="Portfolio Image" href="{%url 'pick' obj.id%}">
-                            <a class="content-wrapper-link" href="{%url 'pick' obj.id%}"></a> -->
+
                          </div>
                         {% endfor %}
                     </div>

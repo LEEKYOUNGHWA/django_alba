@@ -8,9 +8,7 @@ from uploads.core import views
 
 urlpatterns = [
     url(r'^$', views.home, name='main_page'),
-    url(r'^(?P<document_id>[0-9]+)/$', views.select, name='pick'),
-    url(r'^(?P<document_id>[0-9]+)/df/$', views.df, name='dface'),
-    url(r'^df',views.cdf,name='cdface'),
+    url(r'^facelandmark', views.facialfunction, name='fl'),
     url(r'^contact', views.contact, name='contact_page'),
     url(r'^upload', views.model_form_upload, name='upload'),
     url(r'^admin/', admin.site.urls),
