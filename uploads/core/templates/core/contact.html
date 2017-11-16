@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" class="no-js">
+    <!-- BEGIN HEAD -->
+    <head>
+        <meta charset="utf-8"/>
+        <title>PNU VISION & INTERLLIGENT LAB</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <meta content="" name="description"/>
+        <meta content="" name="author"/>
+
+        <!-- GLOBAL MANDATORY STYLES -->
+        <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+        <link href="{% static 'acidus/HTML/vendor/simple-line-icons/simple-line-icons.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'acidus/HTML/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"/>
+
+        <!-- PAGE LEVEL PLUGIN STYLES -->
+        <link href="{% static 'acidus/HTML/css/animate.css' %}" rel="stylesheet">
+        <link href="{% static 'acidus/HTML/vendor/swiper/css/swiper.min.css'%}" rel="stylesheet" type="text/css"/>
+
+        <!-- THEME STYLES -->
+        <link href="{% static 'acidus/HTML/css/layout.css'%}" rel="stylesheet" type="text/css"/>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="favicon.ico"/>
+    </head>
+    <!-- END HEAD -->
+
+    <!-- BODY -->
+    <body>
+
+        <!--========== HEADER ==========-->
+        <header class="header">
+            <!-- Navbar -->
+            <nav class="navbar" role="navigation">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="menu-container">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="toggle-icon"></span>
+                        </button>
+
+                        <!-- Logo -->
+                        <div class="navbar-logo">
+                            <a class="navbar-logo-wrap" href="/">
+                                <img class="navbar-logo-img" src="{% static 'acidus/HTML/img/pnu_logo.png' %}" alt="Acidus Logo">
+                            </a>
+                        </div>
+                        <!-- End Logo -->
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse nav-collapse">
+                        <div class="menu-container">
+                            <ul class="navbar-nav navbar-nav-right">
+                                <!-- Home -->
+                                <li class="nav-item">
+                                    <a class="nav-item-child" href="/">
+                                        Home
+                                    </a>
+                                </li>
+                                <!-- End Home -->
+                                <!-- Contact -->
+                                <li class="nav-item">
+                                    <a class="nav-item-child active" href="/contact">
+                                        Contact
+                                    </a>
+                                </li>
+                                <!-- End Contact -->
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Navbar Collapse -->
+                </div>
+            </nav>
+            <!-- Navbar -->
+        </header>
+        <!--========== END HEADER ==========-->
+
+        <!--========== PAGE LAYOUT ==========-->
+<div class="masonry-grid-sizer col-xs-6 col-sm-6 col-md-6"></div>
+         <!-- Contact List -->
+        <div class="section-seperator">
+            <div class="content-md container">
+                <!-- Contact List -->
+                <div class="col-sm-6 sm-margin-b-50">
+                    <h4><a> 비전 & 지능시스템 연구실 </a> <span class="text-uppercase margin-l-20">Head Office</span></h4>
+                    <p>부산시 금정구 부산대학로 63번길 2 (장전동) 제 3공학관 3517 </p>
+                    <ul class="list-unstyled contact-list">
+                        <li><i class="margin-r-10 color-base icon-call-out"></i> 1 012 3456 7890</li>
+                        <li><i class="margin-r-10 color-base icon-envelope"></i> hq@acidus.com</li>
+                        <li><i class="margin-r-10 color-base icon-home"></i> http://vis.me.pusna.ac.kr</li>
+                    </ul>
+                </div>
+                <!-- End Contact List -->
+            </div>
+        </div>
+        <!-- End Contact List -->
+
+        <!-- Comment -->
+        <div class="bg-color-sky-light">
+        <div class="section-seperator">
+            <div class="content-md container">
+                <div class="row margin-b-40">
+                    <div class="col-sm-6">
+                        <h2>Send Us A Note</h2>
+                        <p>Contact us more easily, please send me the message, we wil contact you .</p>
+                    </div>
+                </div>
+                <!--// end row -->
+
+                <div class="row">
+                    <div class="col-md-5 col-sm-7">
+                        <form>
+                            <div class="margin-b-10">
+                                <input type="text" class="form-control" placeholder="Name">
+                            </div>
+                            <div class="margin-b-10">
+                                <input type="text" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="margin-b-10">
+                                <input type="text" class="form-control" placeholder="Phone">
+                            </div>
+                            <div class="margin-b-20">
+                                <textarea class="form-control" rows="5" placeholder="Message"></textarea>
+                            </div>
+                            <button type="submit" class="btn-theme btn-theme-sm btn-base-bg text-uppercase">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <!--// end row -->
+            </div>
+        </div>
+        <!-- End Comment -->
+        </div>
+        <!--========== END PAGE LAYOUT ==========-->
+
+        <!--========== FOOTER ==========-->
+        <footer class="footer">
+            <!-- Copyright -->
+            <div class="content container">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <a href="/">
+                        <img class="footer-logo" src="{% static 'acidus/HTML/img/pnu_logo.png'%}" alt="Acidus Logo">
+                        </a>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                        <p class="margin-b-0"><a class="fweight-700" href="/">PNU Vison & Intelligent System Lab </a> Theme Powered by: <a class="fweight-700" href="http://www.keenthemes.com/">KeenThemes.com</a></p>
+                    </div>
+                </div>
+                <!--// end row -->
+            </div>
+            <!-- End Copyright -->
+        </footer>
+        <!--========== END FOOTER ==========-->
+
+        <!-- Back To Top -->
+        <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
+
+        <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+        <!-- CORE PLUGINS -->
+        <script src="{% static 'acidus/HTML/vendor/jquery.min.js'%}" type="text/javascript"></script>
+        <script src="{% static 'acidus/HTML/vendor/jquery-migrate.min.js'%}" type="text/javascript"></script>
+        <script src="{% static 'acidus/HTML/vendor/bootstrap/js/bootstrap.min.js'%}" type="text/javascript"></script>
+
+        <!-- PAGE LEVEL PLUGINS -->
+        <script src="{% static 'acidus/HTML/vendor/jquery.easing.js'%}" type="text/javascript"></script>
+        <script src="{% static 'acidus/HTML/vendor/jquery.back-to-top.js'%}" type="text/javascript"></script>
+        <script src="{% static 'acidus/HTML/vendor/jquery.smooth-scroll.js'%}" type="text/javascript"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=true" type="text/javascript"></script>
+        <script src="{% static 'acidus/HTML/vendor/google-map.js'%}" type="text/javascript"></script>
+        <script src="{% static 'acidus/HTML/vendor/jquery.wow.min.js'%}" type="text/javascript"></script>
+        <script src="{% static 'acidus/HTML/vendor/swiper/js/swiper.jquery.min.js'%}" type="text/javascript"></script>
+        <script src="{% static 'acidus/HTML/vendor/masonry/jquery.masonry.pkgd.min.js'%}" type="text/javascript"></script>
+        <script src="{% static 'acidus/HTML/vendor/masonry/imagesloaded.pkgd.min.js'%}" type="text/javascript"></script>
+
+        <!-- PAGE LEVEL SCRIPTS -->
+        <script src="{% static 'acidus/HTML/js/components/wow.min.js'%}" type="text/javascript"></script>
+        <script src="{% static 'acidus/HTML/js/layout.min.js'%}" type="text/javascript"></script>
+        <script src="{% static 'acidus/HTML/js/components/google-map.min.js'%}" type="text/javascript"></script>
+        <script src="{% static 'acidus/HTML/js/components/swiper.min.js'%}" type="text/javascript"></script>
+        <script src="{% static 'acidus/HTML/js/components/masonry.min.js'%}" type="text/javascript"></script>
+
+    </body>
+    <!-- END BODY -->
+</html>
