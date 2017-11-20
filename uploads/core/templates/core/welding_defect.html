@@ -111,7 +111,7 @@
                         <div class="menu-container">
                             <ul class="nav navbar-nav navbar-nav-left">
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover color-light" href="/">DEMO HOME</a></li>
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover color-light" href="/welding_defect.html">WELDING DEFECT</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover color-light" href="welding_defect">WELDING DEFECT</a></li>
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover color-light" href="#contact">CONTACT</a></li>
 
                             </ul>
@@ -181,14 +181,14 @@
                 <div class="container content-lg full-width">
                     <h2><a>Simple Query Drone-View Image</a></h2>
                     <div class="row row-space-2 margin-b-4">
-                        {% for obj in documents %}
+                         {% for obj in documents %}
                          <div class="col-md-3 col-sm-6 " style="padding:3px; padding-right:3px;">
-                             <div class="aspectcorrect widescreen">
-                            <img class="" src="{{ obj.document.url }}" alt="Portfolio Image">
-                            <a class="content-wrapper-link" onclick ="clickimage('{{ obj.document.url }}')"></a>
-                            </div>
+                             <div class="thumbnail">
+                                 <img src="{{ obj.document.url }}" alt="Image">
+                                 <a href="#body" class="content-wrapper-link" onclick ="clickimage('{{ obj.document.url }}')"></a>
+                             </div>
                          </div>
-                        {% endfor %}
+                         {% endfor %}
                     </div>
                     <!--// end row -->
                 </div>

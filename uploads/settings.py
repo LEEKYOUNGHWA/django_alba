@@ -34,6 +34,12 @@ DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1','rudghk5220.pythonanywhere.com','192.168.0.15','localhost','218.146.174.242']
 
 
+THUMBNAIL_ALIASES = {
+    '': {
+        'avatar': {'size': (700, 430), 'autocrop': True, 'crop': True , 'upscale': True},
+    },
+}
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,7 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'uploads.core'
+    'uploads.core',
+    'easy_thumbnails',
 ]
 
 MIDDLEWARE_CLASSES = [

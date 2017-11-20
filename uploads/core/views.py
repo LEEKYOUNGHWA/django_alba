@@ -6,6 +6,7 @@ from uploads.core.forms import InputDocumentForm
 from uploads.core.facial_landmarks_detection_demo.facial_landmarks_detection_demo.demo import FacialLandmark
 from django.views.decorators.clickjacking import xframe_options_exempt
 
+
 @xframe_options_exempt
 def home(request):
     documents = Document.objects.all()
