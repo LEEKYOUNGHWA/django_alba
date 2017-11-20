@@ -23,8 +23,8 @@ sm = SessionManager()
 model_path = BASE_DIR+'/uploads/core/homepage_demo/model/facial_landmark_detector/final'
 sm.init_facial_landmark_detector(model_path)
 ## initialize welding defect recognizer
-#model_path = BASE_DIR + '/uploads/core/homepage_demo/model/welding_defect_recognizer/final'
-#sm.init_welding_defect_recognizer(model_path)
+model_path = BASE_DIR + '/uploads/core/homepage_demo/model/welding_defect_recognizer/final'
+sm.init_welding_defect_recognizer(model_path)
 
 
 

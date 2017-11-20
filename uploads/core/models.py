@@ -6,11 +6,11 @@ from easy_thumbnails import fields
 
 class SampleFacialDocument(models.Model):
     description = models.CharField(max_length=255, blank=True)
-<<<<<<< HEAD
-    document = fields.ThumbnailerField(upload_to='documents/')
-=======
-    sdocument = models.FileField(upload_to='sample/facial/')
->>>>>>> 291451cff669b34d37b66fc168bcb691ddfe26cc
+
+    #document = fields.ThumbnailerField(upload_to='documents/')
+    sdocument = fields.ThumbnailerField(upload_to='sample/facial/')
+    #sdocument = models.FileField(upload_to='sample/facial/')
+
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
 class InputFacialDocument(models.Model):
