@@ -9,7 +9,6 @@ from uploads.core.homepage_demo.demo import FacialLandmark
 from uploads.core.homepage_demo.demo import WeldingDefect
 from django.views.decorators.clickjacking import xframe_options_exempt
 
-
 @xframe_options_exempt
 def home(request):
     documents = SampleFacialDocument.objects.all()
@@ -57,19 +56,3 @@ def welding_defect(request):
 	    #facial_landmark_url = url
             return render(request,'core/welding_defect.html',{'select_file_url': welding_defect_url,'documents':documents})
     return render(request, 'core/welding_defect.html', {'documents': documents})
-
-@xframe_options_exempt
-def contact(request):
-    return render(request, 'core/contact.html', {})
-
-@xframe_options_exempt
-def model_form_upload(request):
-    documents = SampleFacialDocument.objects.all()
-    if request.method == 'POST':
-        form = InputFacialDocumentForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('main_page')
-    else:
-        form = InputFacialDocumentForm()
-    return render(request, 'core/uploadpage.html', {'form': form , 'documents': documents })
