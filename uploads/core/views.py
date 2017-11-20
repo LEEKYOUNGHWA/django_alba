@@ -32,6 +32,17 @@ def facialfunction(request):
     return render(request, 'core/mainpage.html', {'documents': documents})
 
 @xframe_options_exempt
+def welding_defect(request):
+    documents = Document.objects.all()
+    if request.method == 'POST':
+        url = request.POST.get("himgurl")
+        if url:
+            facial_landmark_url= FacialLandmark(url,url[7:])
+	    #facial_landmark_url = url
+            return render(request,'core/welding_defect.html',{'select_file_url': facial_landmark_url,'documents':documents})
+    return render(request, 'core/welding_defect.html', {'documents': documents})
+
+@xframe_options_exempt
 def contact(request):
     return render(request, 'core/contact.html', {})
 

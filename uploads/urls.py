@@ -5,9 +5,9 @@ from django.conf.urls.static import static
 
 from uploads.core import views
 
-
 urlpatterns = [
     url(r'^$', views.home, name='main_page'),
+    url(r'^welding_defect', views.welding_defect, name='wd'),
     url(r'^facelandmark', views.facialfunction, name='fl'),
     url(r'^contact', views.contact, name='contact_page'),
     url(r'^upload', views.model_form_upload, name='upload'),

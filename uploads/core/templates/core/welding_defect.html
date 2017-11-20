@@ -79,41 +79,6 @@
 
         }
 
-//이미지 사이즈 조절
-        function RememberOriginalSize(img) {
-
-            if (!img.originalsize) {
-                img.originalsize = {width : img.width, height : img.height};
-            }
-        }
-        function FixImage(fLetterBox, div, img) {
-
-            RememberOriginalSize(img);
-
-            var targetwidth = $(div).width();
-            var targetheight = $(div).height();
-            var srcwidth = img.originalsize.width;
-            var srcheight = img.originalsize.height;
-            var result = ScaleImage(srcwidth, srcheight, targetwidth, targetheight, fLetterBox);
-
-            img.width = result.width;
-            img.height = result.height;
-            $(img).css("left", result.targetleft);
-            $(img).css("top", result.targettop);
-        }
-
-        function FixImages(fLetterBox) {
-            $("div.aspectcorrect").each(function (index, div) {
-                var img = $(div).find("img").get(0);
-                FixImage(fLetterBox, div, img);
-            });
-        }
-
-        window.onload = function() {
-          //  StretchImages(false);
-          FixImages(false);
-        }
-
 </script>
 
 
@@ -149,7 +114,6 @@
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover color-light" href="/welding_defect.html">WELDING DEFECT</a></li>
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover color-light" href="#contact">CONTACT</a></li>
 
-
                             </ul>
                         </div>
                     </div>
@@ -165,7 +129,7 @@
         <!-- Work -->
         <div id="about">
             <div class="container full-width">
-                <h2><a>Drone View Car Counting</a><span class="margin-l-20">Drone Application</span></h2>
+                <h2><a>Welding Defect</a><span class="margin-l-20">Welding Defect</span></h2>
                 <!--// end row -->
                 <div class="row">
                     <div class="col-sm-8 sm-margin-b-20">
@@ -184,7 +148,7 @@
                     </div>
                     <div class="col-sm-4 sm-margin-b-0">
                         <h3>Project Description</h3>
-                        <p>&nbsp;It's a demo page for our car counting CNN model. You can upload the 'drone-view' image. then our system will localize and count the number of cars in the sene for you</p>
+                        <p>&nbsp;Welding defect demo page. You can upload the 'drone-view' image. then our system will localize and count the number of cars in the sene for you</p>
                         <h3 class="margin-b-0">Upload Your Drone-view Image</h3>
                         <li>file must be smaller than 2MB </li>
 
