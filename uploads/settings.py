@@ -11,14 +11,20 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
-from uploads.core.facial_landmarks_detection_demo.facial_landmarks_detection_demo.lib.Detector import ShapeRegressor
+from uploads.core.homepage_demo.lib.SessionManager import SessionManager
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ## initialize network
 print('initialize network...')
-model_path = BASE_DIR+'/uploads/core/facial_landmarks_detection_demo/facial_landmarks_detection_demo/model/final'
-sr = ShapeRegressor(model_path)
+## create session manager
+sm = SessionManager()
+## initialize facial landmark detector
+model_path = BASE_DIR+'/uploads/core/homepage_demo/model/facial_landmark_detector/final'
+sm.init_facial_landmark_detector(model_path)
+## initialize welding defect recognizer
+#model_path = BASE_DIR + '/uploads/core/homepage_demo/model/welding_defect_recognizer/final'
+#sm.init_welding_defect_recognizer(model_path)
 
 
 
@@ -95,7 +101,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators

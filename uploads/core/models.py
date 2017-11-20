@@ -4,11 +4,24 @@ from django.db import models
 from easy_thumbnails import fields
 
 
-class Document(models.Model):
+class SampleFacialDocument(models.Model):
     description = models.CharField(max_length=255, blank=True)
+<<<<<<< HEAD
     document = fields.ThumbnailerField(upload_to='documents/')
+=======
+    sdocument = models.FileField(upload_to='sample/facial/')
+>>>>>>> 291451cff669b34d37b66fc168bcb691ddfe26cc
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
-class InputDocument(models.Model):
-    idocument = models.FileField(upload_to='userinputs/')
+class InputFacialDocument(models.Model):
+    idocument = models.FileField(upload_to='userinput/facial/')
+    iuploaded_at = models.DateTimeField(auto_now_add=True)
+
+class SampleWDefectDocument(models.Model):
+    description = models.CharField(max_length=255, blank=True)
+    sdocument = models.FileField(upload_to='sample/weldingdefect/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+class InputWDefectDocument(models.Model):
+    idocument = models.FileField(upload_to='userinput/weldingdefect/')
     iuploaded_at = models.DateTimeField(auto_now_add=True)

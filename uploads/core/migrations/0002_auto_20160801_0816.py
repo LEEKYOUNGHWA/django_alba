@@ -15,6 +15,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='document',
             name='document',
-            field=models.FileField(upload_to='documents/'),
+            field=models.FileField(upload_to='sampledocument1/'),
         ),
     ]

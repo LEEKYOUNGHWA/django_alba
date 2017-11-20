@@ -93,8 +93,13 @@
                     <div class="collapse navbar-collapse nav-collapse">
                         <div class="menu-container">
                             <ul class="nav navbar-nav navbar-nav-left">
+<<<<<<< HEAD
                                 <li class="js_nav-item nav-item active"><a class="nav-item-child nav-item-hover color-light" href="#body">FACE DETECT</a></li>
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover color-light" href="welding_defect.html">WELDING DEFECT DETECT</a></li>
+=======
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover color-light" href="/">DEMO HOME</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover color-light" href="/f2">WELDING DEFECT</a></li>
+>>>>>>> 291451cff669b34d37b66fc168bcb691ddfe26cc
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover color-light" href="#contact">CONTACT</a></li>
                             </ul>
                         </div>
@@ -149,6 +154,7 @@
             </div>
         </div>
 
+<<<<<<< HEAD
         <!-- sample image -->
         <div id="sample">
             <div class="container content-lg">
@@ -165,6 +171,20 @@
                              {% else %}
                               <img src="http://placehold.it/260x180" alt="thumbnail">
                              {% endif %}
+=======
+        <!-- Experience -->
+        <div id="experience">
+            <div class="bg-color-sky-light">
+                <div class="container content-lg full-width">
+                    <h2><a>Simple Query Drone-View Image</a></h2>
+                    <div class="row row-space-2 margin-b-4">
+                        {% for obj in documents %}
+                         <div class="col-md-3 col-sm-6 " style="padding:3px; padding-right:3px;">
+                             <div class="aspectcorrect widescreen">
+                            <img class="" src="{{ obj.sdocument.url }}" alt="Portfolio Image">
+                            <a class="content-wrapper-link" onclick ="clickimage('{{ obj.sdocument.url }}')"></a>
+                            </div>
+>>>>>>> 291451cff669b34d37b66fc168bcb691ddfe26cc
                          </div>
                      </div>
                     {% endfor %}

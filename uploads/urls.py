@@ -7,6 +7,7 @@ from uploads.core import views
 
 urlpatterns = [
     url(r'^$', views.home, name='main_page'),
+    url(r'^f2', views.wfunction, name='function_page'),
     url(r'^welding_defect', views.welding_defect, name='wd'),
     url(r'^facelandmark', views.facialfunction, name='fl'),
     url(r'^contact', views.contact, name='contact_page'),
