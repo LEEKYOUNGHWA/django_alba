@@ -34,7 +34,7 @@
         }
         var frm;
         frm = $('#preload');
-        frm.attr("action","/");
+        frm.attr("action","/f2");
         frm.submit();
     }
     function clickimage(url){
@@ -47,7 +47,7 @@
         img.attr("src",url);
     }
 
-    function mydetectface(){
+    function mydefect_welding(){
         var count = sessionStorage.getItem('btn_cnt',0);
         count++;
         sessionStorage.setItem('btn_cnt',count);
@@ -63,7 +63,7 @@
                      hidden.attr("value",url);
                      var frm;
                      frm= $('#calldfformb');
-                     frm.attr("action","/facelandmark/");
+                     frm.attr("action","/welding_defect/");
                      frm.submit();
                }else{
                     alert("이미지를 선택해주세요");
@@ -111,7 +111,7 @@
                         <div class="menu-container">
                             <ul class="nav navbar-nav navbar-nav-left">
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover color-light" href="/">DEMO HOME</a></li>
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover color-light" href="/welding_defect.html">WELDING DEFECT</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover color-light" href="/f2">WELDING DEFECT</a></li>
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover color-light" href="#contact">CONTACT</a></li>
 
                             </ul>
@@ -161,9 +161,9 @@
                          {% endif %}
                             <form id = 'calldfformb' method="post">
                                 {% csrf_token %}
-                                <h3>Start Face Detecting ..</h3>
+                                <h3>Start Welding Defect Detecting ..</h3>
                                 <input type="hidden" id="himgurl" name="himgurl" value =""/>
-                                <button style="height:50px;" class="btn btn-success full-width" onclick ="mydetectface()" >DETECT</button>
+                                <button style="height:50px;" class="btn btn-success full-width" onclick ="mydefect_welding()" >DETECT</button>
                             </form>
                     </div>
                 </div>
@@ -184,8 +184,8 @@
                         {% for obj in documents %}
                          <div class="col-md-3 col-sm-6 " style="padding:3px; padding-right:3px;">
                              <div class="aspectcorrect widescreen">
-                            <img class="" src="{{ obj.document.url }}" alt="Portfolio Image">
-                            <a class="content-wrapper-link" onclick ="clickimage('{{ obj.document.url }}')"></a>
+                            <img class="" src="{{ obj.sdocument.url }}" alt="Portfolio Image">
+                            <a class="content-wrapper-link" onclick ="clickimage('{{ obj.sdocument.url }}')"></a>
                             </div>
                          </div>
                         {% endfor %}

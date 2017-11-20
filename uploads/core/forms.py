@@ -1,14 +1,26 @@
 from django import forms
 
-from uploads.core.models import Document
-from uploads.core.models import InputDocument
+from uploads.core.models import SampleFacialDocument
+from uploads.core.models import InputFacialDocument
+from uploads.core.models import SampleWDefectDocument
+from uploads.core.models import InputWDefectDocument
 
-class DocumentForm(forms.ModelForm):
+class SampleFacialDocumentForm(forms.ModelForm):
     class Meta:
-        model = Document
-        fields = ('description', 'document', )
+        model = SampleFacialDocument
+        fields = ('sdocument', )
 
-class InputDocumentForm(forms.ModelForm):
+class InputFacialDocumentForm(forms.ModelForm):
     class Meta:
-        model = InputDocument
+        model = InputFacialDocument
+        fields = ('idocument',)
+
+class SampleWDefectDocumentForm(forms.ModelForm):
+    class Meta:
+        model = SampleWDefectDocument
+        fields = ('sdocument', )
+
+class InputWDefectDocumentForm(forms.ModelForm):
+    class Meta:
+        model = InputWDefectDocument
         fields = ('idocument',)
