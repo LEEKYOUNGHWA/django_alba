@@ -53,16 +53,15 @@
                         img = $('#mainimage');
                      {% endif %}
                       var url = img.attr("src");
-                      if(url !='/static/acidus/HTML/img/basicimage.jpg'){
-                             var hidden = $('#himgurl');
-                             hidden.attr("value",url);
-                             var frm;
-                             frm= $('#calldfformb');
-                             frm.attr("action","/facelandmark/");
-                             frm.submit();
-                       }else{
-                            alert("이미지를 선택해주세요");
-                       }
+                      var hidden = $('#himgurl');
+                      if(url =='/static/acidus/HTML/img/0_uzYdL17.png'){
+                           url = '/media/sample/facial/0_uzYdL17.png';
+                      }
+                      hidden.attr("value",url);
+                      var frm;
+                      frm= $('#calldfformb');
+                      frm.attr("action","/facelandmark/");
+                      frm.submit();
             }
         </script>
     </head>
@@ -122,7 +121,7 @@
                                 {% if select_file_url %}
                                 <img class="full-width img-responsive" id = "uploadimage" src="{{ select_file_url }}" alt="Portfolio Image">
                                 {% else %}
-                                <img class="full-width img-responsive" id = "mainimage" src="{% static 'acidus/HTML/img/basicimage.jpg' %}" alt="Portfolio Image">
+                                <img class="full-width img-responsive" id = "mainimage" src="{% static 'acidus/HTML/img/0_uzYdL17.png' %}" alt="Portfolio Image">
                                 {% endif %}
                             </div>
                         </div>

@@ -16,12 +16,14 @@ class ShapeRegressor(object):
         self.net = ResNet(self.image_size, self.num_landmarks, self.variance)
         self.images_T, self.prediction_T = self.net.get_test_tensors()
 
+        ## get model variables
+        variables = slim.filter_variables(slim.get_model_variables(), include_patterns=['ResNet'])
+
         ## initialize variables
-        self.sess.run(tf.global_variables_initializer())
+        self.sess.run(tf.variables_initializer(variables))
 
         ## load model
-        restorer = tf.train.Saver(slim.filter_variables(slim.get_model_variables(),
-                                                        include_patterns=['ResNet']))
+        restorer = tf.train.Saver(variables)
         restorer.restore(self.sess, model_path)
 
         ## create color map

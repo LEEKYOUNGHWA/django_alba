@@ -18,12 +18,14 @@ class Recognizer(object):
         self.net = LeNet(self.image_size, self.num_class)
         self.images_T, self.prob_T = self.net.get_test_tensors()
 
+        ## get model variables
+        variables = slim.filter_variables(slim.get_model_variables(), include_patterns=['LeNet'])
+
         ## initialize variables
-        self.sess.run(tf.global_variables_initializer())
+        self.sess.run(tf.variables_initializer(variables))
 
         ## load model
-        restorer = tf.train.Saver(slim.filter_variables(slim.get_model_variables(),
-                                                        include_patterns=['LeNet']))
+        restorer = tf.train.Saver(variables)
         restorer.restore(self.sess, model_path)
 
         ## transform params

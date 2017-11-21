@@ -52,16 +52,16 @@
                 img = $('#mainimage');
              {% endif %}
               var url = img.attr("src");
-              if(url !='/static/acidus/HTML/img/basicimage.jpg'){
-                     var hidden = $('#himgurl');
-                     hidden.attr("value",url);
-                     var frm;
-                     frm= $('#calldfformb');
-                     frm.attr("action","/welding_defect/");
-                     frm.submit();
-               }else{
-                    alert("이미지를 선택해주세요");
-               }
+              var hidden = $('#himgurl');
+              if(url == '/static/acidus/HTML/img/0_fcAT0kj.jpg'){
+                   url = '/media/sample/weldingdefect/0_fcAT0kj.jpg'
+              }
+               hidden.attr("value",url);
+               var frm;
+               frm= $('#calldfformb');
+               frm.attr("action","/welding_defect/");
+               frm.submit();
+
     }
 
 </script>
@@ -123,7 +123,7 @@
                                     {% if select_file_url %}
                                     <img class="full-width img-responsive" id = "uploadimage" src="{{ select_file_url }}" alt="Portfolio Image">
                                     {% else %}
-                                    <img class="full-width img-responsive" id = "mainimage" src="{% static 'acidus/HTML/img/basicimage.jpg' %}" alt="Portfolio Image">
+                                    <img class="full-width img-responsive" id = "mainimage" src="{% static 'acidus/HTML/img/0_fcAT0kj.jpg' %}" alt="Portfolio Image">
                                     {% endif %}
                                 </div>
                             </div>
