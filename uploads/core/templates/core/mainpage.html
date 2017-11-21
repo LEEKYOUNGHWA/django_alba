@@ -54,14 +54,18 @@
                      {% endif %}
                       var url = img.attr("src");
                       var hidden = $('#himgurl');
-                      if(url =='/static/acidus/HTML/img/0_uzYdL17.png'){
-                           url = '/media/sample/facial/0_uzYdL17.png';
+                      if(url.substr(7,6) == 'result'){
+                          alert("다른이미지를 선택해주세요");
+                      }else{
+                          if(url =='/static/acidus/HTML/img/0_uzYdL17.png'){
+                               url = '/media/sample/facial/0_uzYdL17.png';
+                          }
+                          hidden.attr("value",url);
+                          var frm;
+                          frm= $('#calldfformb');
+                          frm.attr("action","/facelandmark/");
+                          frm.submit();
                       }
-                      hidden.attr("value",url);
-                      var frm;
-                      frm= $('#calldfformb');
-                      frm.attr("action","/facelandmark/");
-                      frm.submit();
             }
         </script>
     </head>

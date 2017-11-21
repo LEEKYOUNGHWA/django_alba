@@ -53,15 +53,18 @@
              {% endif %}
               var url = img.attr("src");
               var hidden = $('#himgurl');
-              if(url == '/static/acidus/HTML/img/0_fcAT0kj.jpg'){
-                   url = '/media/sample/weldingdefect/0_fcAT0kj.jpg'
-              }
-               hidden.attr("value",url);
-               var frm;
-               frm= $('#calldfformb');
-               frm.attr("action","/welding_defect/");
-               frm.submit();
-
+              if(url.substr(7,6) == 'result'){
+                    alert("다른이미지를 선택해주세요");
+              }else{
+                  if(url == '/static/acidus/HTML/img/0_fcAT0kj.jpg'){
+                       url = '/media/sample/weldingdefect/0_fcAT0kj.jpg'
+                  }
+                   hidden.attr("value",url);
+                   var frm;
+                   frm= $('#calldfformb');
+                   frm.attr("action","/welding_defect/");
+                   frm.submit();
+               }
     }
 
 </script>
