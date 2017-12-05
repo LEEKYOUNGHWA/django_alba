@@ -26,9 +26,11 @@
             alert("파일을 선택하세요");
             $("#idocument").focus();
             return;
-        }else if($("#idocument").val().split(".")[1].toUpperCase()!="PNG"||$("#idocument").val().split(".")[1].toUpperCase() !="JPG"){
-        alert("이미지 파일을 선택하세요");
-        return ;
+        }
+
+        if(($("#idocument").val().split(".")[1].toUpperCase()!="PNG")&&($("#idocument").val().split(".")[1].toUpperCase() !="JPG")){
+            alert("이미지 파일을 선택하세요");
+            return ;
         }
 
         var frm;
@@ -175,7 +177,7 @@
                             {% if obj.sdocument %}
                             {% load thumbnail %}
                             <img src= "{{ obj.sdocument|thumbnail_url:'avatar' }}" alt="pppp">
-                            <a href="#body" class="content-wrapper-link" onclick ="clickimage('{{ obj.sdocument.url }}')"></a>
+                            <a class="content-wrapper-link" onclick ="clickimage('{{ obj.sdocument.url }}')" href="#body"></a>
                             {% else %}
                             <img src="http://placehold.it/260x180" alt="thumbnail">
                             {% endif %}
