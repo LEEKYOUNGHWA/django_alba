@@ -145,8 +145,6 @@
                         <h3 class="margin-b-0">Upload Your Drone-view Image</h3>
                         <li>file must be smaller than 2MB </li>
 
-                         {% if select_file_url %}
-                         {% else %}
                             <form id = 'preload' method="post" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 <input type="file" id = 'idocument' name='idocument' onchange="preupload()"/>
@@ -154,7 +152,7 @@
                                 <input type="file" id = 'idocument' name='idocument' accept="image/*" onchange="preupload()"/>
                                 -->
                             </form>
-                         {% endif %}
+
                             <form id = 'calldfformb' method="post">
                                 {% csrf_token %}
                                 <h3>Start Welding Defect Detecting ..</h3>
