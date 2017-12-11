@@ -16,9 +16,8 @@ def home(request):
         form = InputFacialDocumentForm(request.POST, request.FILES)
         # user input file save
         if form.is_valid():
-            form.save()
-            myfile = request.FILES['idocument']
-            uploaded_file_url = "/media/userinput/facial/"+myfile.name
+            newone = form.save()
+            uploaded_file_url = "/media/"+newone.idocument.name
             return render(request, 'core/mainpage.html', { 'select_file_url': uploaded_file_url,'documents': documents})
     return render(request, 'core/mainpage.html',{'documents': documents})
 
@@ -29,9 +28,8 @@ def wfunction(request):
         form = InputWDefectDocumentForm(request.POST, request.FILES)
         # user input file save
         if form.is_valid():
-            form.save()
-            myfile = request.FILES['idocument']
-            uploaded_file_url = "/media/userinput/weldingdefect/" + myfile.name
+            newone = form.save()
+            uploaded_file_url = "/media/" + newone.idocument.name
             return render(request, 'core/welding_defect.html', {'select_file_url': uploaded_file_url, 'documents': documents})
     return render(request, 'core/welding_defect.html', {'documents': documents})
 
